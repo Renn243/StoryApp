@@ -9,6 +9,7 @@ import com.raihanresa.storyapp.repository.UserRepository
 import com.raihanresa.storyapp.ui.add.AddViewModel
 import com.raihanresa.storyapp.ui.login.LoginViewModel
 import com.raihanresa.storyapp.ui.main.MainViewModel
+import com.raihanresa.storyapp.ui.main.MapsViewModel
 import com.raihanresa.storyapp.ui.signup.SignupViewModel
 
 class ViewModelFactory(
@@ -30,6 +31,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(AddViewModel::class.java) -> {
                 AddViewModel(storyRepository) as T
+            }
+            modelClass.isAssignableFrom(MapsViewModel::class.java) -> {
+                MapsViewModel(storyRepository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }

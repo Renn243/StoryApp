@@ -79,6 +79,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cardImage" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/descriptionEditTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -87,7 +88,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_description"
+                android:id="@+id/descriptionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:padding="10dp"
@@ -98,6 +99,15 @@
                 android:scrollbars="vertical"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <CheckBox
+            android:id="@+id/includeLocationCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/include_current_location"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintTop_toBottomOf="@id/descriptionEditTextLayout"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <ImageButton
             android:id="@+id/uploadButton"
@@ -105,10 +115,11 @@
             android:layout_height="48dp"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginVertical="30dp"
             android:background="@drawable/rounded_button"
             android:padding="10dp"
             android:src="@drawable/baseline_check_24"
+            app:layout_constraintTop_toBottomOf="@id/includeLocationCheckBox"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

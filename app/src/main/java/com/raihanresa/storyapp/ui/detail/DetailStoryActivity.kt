@@ -8,7 +8,6 @@ import com.raihanresa.storyapp.databinding.ActivityDetailStoryBinding
 class DetailStoryActivity : AppCompatActivity() {
 
     companion object {
-        const val EXTRA_ID = "extra_id"
         const val EXTRA_NAME = "extra_name"
         const val EXTRA_PHOTO_URL = "extra_photo_url"
         const val EXTRA_DESCRIPTION = "extra_description"

@@ -51,6 +51,18 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/logout_button" />
 
+            <ImageButton
+                android:id="@+id/btn_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="36dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/maps_button"
+                android:src="@drawable/baseline_map_24"
+                app:layout_constraintEnd_toStartOf="@+id/btn_logout"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineHorizontal"
                 android:layout_width="wrap_content"

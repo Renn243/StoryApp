@@ -34,10 +34,6 @@ class UserRepository(
                 } else {
                     emit(ResultState.Error(response.message() ?: "Unknown error"))
                 }
-            } catch (e: HttpException) {
-                val errorBody = e.response()?.errorBody()?.string()
-                val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
-                emit(ResultState.Error(errorResponse.message ?: "Unknown error"))
             } catch (e: Exception) {
                 emit(ResultState.Error(e.message ?: "Exception occurred"))
             }
@@ -66,10 +62,6 @@ class UserRepository(
                 } else {
                     emit(ResultState.Error(response.message() ?: "Unknown error"))
                 }
-            } catch (e: HttpException) {
-                val errorBody = e.response()?.errorBody()?.string()
-                val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
-                emit(ResultState.Error(errorResponse.message ?: "Unknown error"))
             } catch (e: Exception) {
                 emit(ResultState.Error(e.message ?: "Exception occurred"))
             }

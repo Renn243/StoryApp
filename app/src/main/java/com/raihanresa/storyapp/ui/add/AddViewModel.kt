@@ -10,5 +10,9 @@ import okhttp3.RequestBody
 
 class AddViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    fun uploadStory(file: MultipartBody.Part, description: RequestBody): LiveData<ResultState<AddStoryResponse>> = storyRepository.uploadImage(file, description)
+    fun uploadStory(file: MultipartBody.Part, description: RequestBody): LiveData<ResultState<AddStoryResponse>>
+        = storyRepository.uploadImage(file, description)
+
+    fun uploadStoryWithLocation(file: MultipartBody.Part, description: RequestBody, lon: RequestBody, lat: RequestBody): LiveData<ResultState<AddStoryResponse>>
+        = storyRepository.uploadImageWithLocation(file, description, lon, lat)
 }

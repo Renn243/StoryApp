@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Data cannot be empty", Toast.LENGTH_SHORT).show()
             } else {
-                binding.progressIndicator.visibility = View.VISIBLE
                 viewModel.login(email, password).observe(this) { result ->
                     when (result) {
                         is ResultState.Loading -> {
@@ -47,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                         is ResultState.Error -> {
                             binding.progressIndicator.visibility = View.GONE
-                            Toast.makeText(this, result.error ?: "Unknown error", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

@@ -3,15 +3,15 @@ package com.raihanresa.storyapp.ui.main
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import com.bumptech.glide.Glide
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.raihanresa.storyapp.data.remote.response.ListStoryItem
 import com.raihanresa.storyapp.databinding.ItemStoryBinding
 import com.raihanresa.storyapp.ui.detail.DetailStoryActivity
 
-class ItemStoryAdapter : ListAdapter<ListStoryItem, ItemStoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class ItemStoryAdapter : PagingDataAdapter<ListStoryItem, ItemStoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -20,7 +20,7 @@ class ItemStoryAdapter : ListAdapter<ListStoryItem, ItemStoryAdapter.MyViewHolde
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val story = getItem(position)
-        holder.bind(story)
+        story?.let { holder.bind(it) }
     }
 
     class MyViewHolder(private val binding: ItemStoryBinding) : RecyclerView.ViewHolder(binding.root) {

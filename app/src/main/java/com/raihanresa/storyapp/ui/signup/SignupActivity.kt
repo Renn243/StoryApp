@@ -47,7 +47,7 @@ class SignupActivity : AppCompatActivity() {
                         }
                         is ResultState.Error -> {
                             binding.progressIndicator.visibility = View.GONE
-                            Toast.makeText(this, result.error ?: "Unknown error", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

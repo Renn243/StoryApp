@@ -30,10 +30,10 @@ class UserPreference(private val context: Context) {
     }
 
     companion object {
-        val TOKEN_KEY = stringPreferencesKey("token")
-
         @Volatile
         private var INSTANCE: UserPreference? = null
+
+        val TOKEN_KEY = stringPreferencesKey("token")
 
         fun getInstance(context: Context): UserPreference {
             return INSTANCE ?: synchronized(this) {
